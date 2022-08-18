@@ -19,7 +19,4 @@ router.register('judge', JudgeViewSet)
 router.register('owner', OwnerViewSet)
 router.register('challenge', ChallengeViewSet)
 
-
-
-
 urlpatterns = router.urls
