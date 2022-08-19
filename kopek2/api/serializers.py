@@ -27,7 +27,7 @@ class CitySerializer(serializers.ModelSerializer):
     class Meta:
         model = City
         fields = "__all__"
-        depth = 1
+        # #depth = 1
 
 
 class BranchSerializer(serializers.ModelSerializer):
@@ -40,7 +40,7 @@ class IllnessSerializer(serializers.ModelSerializer):
     class Meta:
         model = Illness
         fields = "__all__"
-        depth = 1
+        # depth = 1
 
 
 class IllnessCategorySerializer(serializers.ModelSerializer):
@@ -71,7 +71,7 @@ class HospitalSerializer(serializers.ModelSerializer):
     class Meta:
         model = Hospital
         fields = "__all__"
-        depth = 2
+        # depth = 2
 
 
 class GadgetTypeSerializer(serializers.ModelSerializer):
@@ -84,46 +84,45 @@ class OwnerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Owner
         fields = "__all__"
-        depth = 1
+        # ##depth = 2
 
 
 class DoctorSerializer(serializers.ModelSerializer):
     class Meta:
         model = Doctor
         fields = "__all__"
-        depth = 2
+        # depth = 2
 
 
 class PetSerializer(serializers.ModelSerializer):
     class Meta:
         model = Pet
         fields = "__all__"
-        depth = 2
+        # depth = 2
 
 
 class ChallengeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Challenge
         fields = "__all__"
-        depth = 2
+        # depth = 2
 
 
 class PetIllnessSerializer(serializers.ModelSerializer):
     class Meta:
         model = PetIllness
         fields = "__all__"
-        depth = 1
+        # depth = 1d>
 
 
 class PetChallengeSerializer(serializers.ModelSerializer):
     class Meta:
         model = PetChallenge
         fields = "__all__"
-        depth = 3
+        # depth = 3
 
 
 class RaceSerializer(serializers.ModelSerializer):
     class Meta:
         model = Race
         fields = "__all__"
-

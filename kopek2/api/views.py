@@ -3,12 +3,8 @@ from rest_framework.response import Response
 from rest_framework import viewsets
 from rest_framework.viewsets import ModelViewSet
 
-from kopek2.api.serializers import ColorSerializer, HospitalSerializer, SizeSerializer, CountrySerializer, \
-    CitySerializer, BranchSerializer, RaceSerializer, IllnessSerializer, JudgeSerializer, AwardSerializer, \
-    IllnessTypeSerializer, GadgetTypeSerializer, DoctorSerializer, OwnerSerializer, ChallengeSerializer, PetSerializer, \
-    PetChallengeSerializer
-from kopek2.models import Color, Size, Country, City, Branch, Hospital, Race, Illness, Judge, Award, IllnessType, \
-    GadgetType, Doctor, Owner, Challenge, Pet, PetChallenge
+from kopek2.api.serializers import *
+from kopek2.models import *
 
 
 class ColorViewSet(ModelViewSet):
@@ -38,10 +34,10 @@ class BranchViewSet(viewsets.ModelViewSet):
 
 class HospitalViewSet(viewsets.ModelViewSet):
     queryset = Hospital.objects.all()
-    serializer = HospitalSerializer(many=True)
+    serializer_class = HospitalSerializer
 
 
-class RaceViewsSet(viewsets.ModelViewSet):
+class RaceViewSet(viewsets.ModelViewSet):
     queryset = Race.objects.all()
     serializer_class = RaceSerializer
 

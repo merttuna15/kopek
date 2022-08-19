@@ -64,9 +64,9 @@ class Award(models.Model):
 
 
 class GadgetType(models.Model):
-    dress = models.TextField()
-    shoes = models.TextField()
-    collet = models.TextField()
+    dress = models.TextField(blank=True, null=True)
+    shoes = models.TextField(blank=True, null=True)
+    collet = models.TextField(blank=True, null=True)
 
 
 class Doctor(models.Model):
