@@ -7,6 +7,16 @@ from kopek2.api.serializers import *
 from kopek2.models import *
 
 
+class BaseViewSet(viewsets.ModelViewSet):
+
+    def get_serializer_class(self):
+        read_serializer_class = getattr(self, "read_serializer_class", None)
+        if read_serializer_class and self.action in ['list', 'retrieve']:
+            return read_serializer_class
+        else:
+            return self.serializer_class
+
+
 class ColorViewSet(ModelViewSet):
     queryset = Color.objects.all()
     serializer_class = ColorSerializer
@@ -17,14 +27,16 @@ class SizeViewSet(viewsets.ModelViewSet):
     serializer_class = SizeSerializer
 
 
-class CountryViewSet(viewsets.ModelViewSet):
+class CountryViewSet(BaseViewSet):
     queryset = Country.objects.all()
     serializer_class = CountrySerializer
+    read_serializer_class = CountryReadSerializer
 
 
-class CityViewSet(viewsets.ModelViewSet):
+class CityViewSet(BaseViewSet):
     queryset = City.objects.all()
     serializer_class = CitySerializer
+    read_serializer_class = CityReadSerializer
 
 
 class BranchViewSet(viewsets.ModelViewSet):
@@ -68,7 +80,7 @@ class GadgetTypeViewSet(viewsets.ModelViewSet):
 
 
 class DoctorViewSet(viewsets.ModelViewSet):
-    queryset = Doctor.objects.all()
+    queryset = Doctor5555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555.objects.all()
     serializer_class = DoctorSerializer
 
 
@@ -82,9 +94,10 @@ class ChallengeViewSet(viewsets.ModelViewSet):
     serializer_class = ChallengeSerializer
 
 
-class PetViewSet(viewsets.ModelViewSet):
+class PetViewSet(BaseViewSet):
     queryset = Pet.objects.all()
     serializer_class = PetSerializer
+    read_serializer_class = PetReadSerializer
 
 
 class PetChallengeViewSet(viewsets.ModelViewSet):
@@ -92,5 +105,6 @@ class PetChallengeViewSet(viewsets.ModelViewSet):
     serializer_class = PetChallengeSerializer
 
 
-
-
+class PetIllnessViewSet(viewsets.ModelViewSet):
+    queryset = PetIllness.objects.all()
+    serializer_class = PetIllnessSerializer

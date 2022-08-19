@@ -21,5 +21,7 @@ router.register('challenge', ChallengeViewSet)
 router.register('pet', PetViewSet)
 router.register('race', RaceViewSet)
 router.register('petchallenge', PetChallengeViewSet)
+router.register('petillness', PetIllnessViewSet)
+
 
 urlpatterns = router.urls

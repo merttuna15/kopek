@@ -116,7 +116,7 @@ class Challenge(models.Model):
 class PetIllness(models.Model):
     type = models.ForeignKey(IllnessType, verbose_name="IllnessType", null=True, on_delete=models.SET_NULL)
     pet = models.ForeignKey(Pet, verbose_name="pet", null=True, on_delete=models.SET_NULL)
-    category = models.IntegerField(choices=IllnessCategory.choices)
+    category = models.TextField(choices=IllnessCategory.choices)
 
 
 class PetChallenge(models.Model):

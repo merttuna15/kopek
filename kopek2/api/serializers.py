@@ -1,8 +1,5 @@
 from rest_framework import serializers
-
-from kopek2.models import Branch, Award, Judge, Pet, PetChallenge, PetIllness, \
-    Challenge, Hospital, Owner, Doctor, IllnessType, IllnessCategory, GadgetType, Illness, Color, Size, Country, City, \
-    Race
+from kopek2.models import *
 
 
 class ColorSerializer(serializers.ModelSerializer):
@@ -23,11 +20,25 @@ class CountrySerializer(serializers.ModelSerializer):
         fields = "__all__"
 
 
+class CountryReadSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Pet
+        fields = "__all__"
+        depth = 1
+
+
 class CitySerializer(serializers.ModelSerializer):
     class Meta:
         model = City
         fields = "__all__"
         # #depth = 1
+
+
+class CityReadSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Pet
+        fields = "__all__"
+        depth = 1
 
 
 class BranchSerializer(serializers.ModelSerializer):
@@ -40,7 +51,7 @@ class IllnessSerializer(serializers.ModelSerializer):
     class Meta:
         model = Illness
         fields = "__all__"
-        # depth = 1
+        # depth = 2
 
 
 class IllnessCategorySerializer(serializers.ModelSerializer):
@@ -98,7 +109,13 @@ class PetSerializer(serializers.ModelSerializer):
     class Meta:
         model = Pet
         fields = "__all__"
-        # depth = 2
+
+
+class PetReadSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Pet
+        fields = "__all__"
+        depth = 1
 
 
 class ChallengeSerializer(serializers.ModelSerializer):
@@ -112,6 +129,7 @@ class PetIllnessSerializer(serializers.ModelSerializer):
     class Meta:
         model = PetIllness
         fields = "__all__"
+
         # depth = 1d>
 
 
