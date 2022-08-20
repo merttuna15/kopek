@@ -183,7 +183,7 @@ class DoctorReadSerializer(serializers.ModelSerializer):
     class Meta:
         model = Doctor
         fields = "__all__"
-        depth = 2
+        depth = 3
 
 
 class PetSerializer(serializers.ModelSerializer):

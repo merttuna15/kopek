@@ -96,7 +96,7 @@ class Pet(models.Model):
     owner = models.ForeignKey(Owner, on_delete=models.CASCADE, related_name="pets")
     parent = models.ForeignKey("self", verbose_name="Parent", null=True, on_delete=models.SET_NULL, related_name="pets")
     race = models.ForeignKey(Race, verbose_name="Race", null=True, on_delete=models.SET_NULL)
-    illness = models.ManyToManyField(Illness, verbose_name="Illness")
+    illness = models.ManyToManyField(Illness, blank=True, null=True, verbose_name="Illness")
     gadget = models.ForeignKey(GadgetType, verbose_name="Gadget", null=True, on_delete=models.SET_NULL)
 
     @property
