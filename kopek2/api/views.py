@@ -17,14 +17,16 @@ class BaseViewSet(viewsets.ModelViewSet):
             return self.serializer_class
 
 
-class ColorViewSet(ModelViewSet):
+class ColorViewSet(BaseViewSet):
     queryset = Color.objects.all()
     serializer_class = ColorSerializer
+    read_serializer_class = ColorReadSerializer
 
 
-class SizeViewSet(viewsets.ModelViewSet):
+class SizeViewSet(BaseViewSet):
     queryset = Size.objects.all()
     serializer_class = SizeSerializer
+    read_serializer_class = SizeReadSerializer
 
 
 class CountryViewSet(BaseViewSet):
@@ -39,59 +41,70 @@ class CityViewSet(BaseViewSet):
     read_serializer_class = CityReadSerializer
 
 
-class BranchViewSet(viewsets.ModelViewSet):
+class BranchViewSet(BaseViewSet):
     queryset = Branch.objects.all()
     serializer_class = BranchSerializer
+    read_serializer_class = BranchReadSerializer
 
 
-class HospitalViewSet(viewsets.ModelViewSet):
+class HospitalViewSet(BaseViewSet):
     queryset = Hospital.objects.all()
     serializer_class = HospitalSerializer
+    read_serializer_class = HospitalReadSerializer
 
 
-class RaceViewSet(viewsets.ModelViewSet):
+class RaceViewSet(BaseViewSet):
     queryset = Race.objects.all()
     serializer_class = RaceSerializer
+    read_serializer_class = RaceSerializer
 
 
-class IllnessViewSet(viewsets.ModelViewSet):
+class IllnessViewSet(BaseViewSet):
     queryset = Illness.objects.all()
     serializer_class = IllnessSerializer
+    read_serializer_class = IllnessReadSerializer
 
 
-class IllnessTypeViewSet(viewsets.ModelViewSet):
+class IllnessTypeViewSet(BaseViewSet):
     queryset = IllnessType.objects.all()
     serializer_class = IllnessTypeSerializer
+    read_serializer_class = IllnessTypeReadSerializer
 
 
-class JudgeViewSet(viewsets.ModelViewSet):
+class JudgeViewSet(BaseViewSet):
     queryset = Judge.objects.all()
     serializer_class = JudgeSerializer
+    read_serializer_class = JudgeReadSerializer
 
 
-class AwardViewSet(viewsets.ModelViewSet):
+class AwardViewSet(BaseViewSet):
     queryset = Award.objects.all()
     serializer_class = AwardSerializer
+    read_serializer_clas = AwardReadSerializer
 
 
-class GadgetTypeViewSet(viewsets.ModelViewSet):
+class GadgetTypeViewSet(BaseViewSet):
     queryset = GadgetType.objects.all()
     serializer_class = GadgetTypeSerializer
+    read_serializer_class = GadgetTypeReadSerializer
 
 
-class DoctorViewSet(viewsets.ModelViewSet):
-    queryset = Doctor5555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555.objects.all()
+class DoctorViewSet(BaseViewSet):
+    queryset = Doctor.objects.all()
     serializer_class = DoctorSerializer
+    read_serializer_class = DoctorReadSerializer
 
 
-class OwnerViewSet(viewsets.ModelViewSet):
+class OwnerViewSet(BaseViewSet):
     queryset = Owner.objects.all()
     serializer_class = OwnerSerializer
+    read_serializer_class = OwnerReadSerializer
 
 
-class ChallengeViewSet(viewsets.ModelViewSet):
+class ChallengeViewSet(BaseViewSet):
     queryset = Challenge.objects.all()
     serializer_class = ChallengeSerializer
+    read_serializer_class = ChallengeReadSerializer
 
 
 class PetViewSet(BaseViewSet):
@@ -100,11 +113,19 @@ class PetViewSet(BaseViewSet):
     read_serializer_class = PetReadSerializer
 
 
-class PetChallengeViewSet(viewsets.ModelViewSet):
+class PetChallengeViewSet(BaseViewSet):
     queryset = PetChallenge.objects.all()
     serializer_class = PetChallengeSerializer
+    read_serializer_class = PetChallengeReadSerializer
 
 
-class PetIllnessViewSet(viewsets.ModelViewSet):
+class PetIllnessViewSet(BaseViewSet):
     queryset = PetIllness.objects.all()
     serializer_class = PetIllnessSerializer
+    read_serializer_class = PetIllnessReadSerializer
+
+
+#class IllnessCategoryViewSet(BaseViewSet):
+ #   queryset = IllnessCategory.objects.all()
+  #  serializer_class = IllnessCategorySerializer
+   # read_serializer_class = IllnessReadSerializer

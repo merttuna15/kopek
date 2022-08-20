@@ -2,6 +2,7 @@ from rest_framework.routers import DefaultRouter
 
 from kopek2.api.views import *
 
+
 router = DefaultRouter()
 
 router.register('color', ColorViewSet)
