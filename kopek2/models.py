@@ -1,7 +1,5 @@
 from datetime import datetime
-
 from django.db import models
-
 from kopek2.helpers import IllnessCategory
 
 

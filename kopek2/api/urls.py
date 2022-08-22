@@ -1,7 +1,5 @@
 from rest_framework.routers import DefaultRouter
-
 from kopek2.api.views import *
-
 
 router = DefaultRouter()
 
@@ -24,5 +22,5 @@ router.register('race', RaceViewSet)
 router.register('petchallenge', PetChallengeViewSet)
 router.register('petillness', PetIllnessViewSet)
 
-
 urlpatterns = router.urls
+
