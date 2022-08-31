@@ -1,6 +1,6 @@
-from rest_framework import status
-from rest_framework.response import Response
 from rest_framework import viewsets
+from rest_framework.permissions import IsAuthenticated
+
 from kopek2.api.serializers import *
 from kopek2.models import *
 
@@ -19,6 +19,7 @@ class ColorViewSet(BaseViewSet):
     queryset = Color.objects.all()
     serializer_class = ColorSerializer
     read_serializer_class = ColorReadSerializer
+    permission_classes = [IsAuthenticated]
 
 
 class SizeViewSet(BaseViewSet):
@@ -122,8 +123,7 @@ class PetIllnessViewSet(BaseViewSet):
     serializer_class = PetIllnessSerializer
     read_serializer_class = PetIllnessReadSerializer
 
-
-#class IllnessCategoryViewSet(BaseViewSet):
- #   queryset = IllnessCategory.objects.all()
-  #  serializer_class = IllnessCategorySerializer
-   # read_serializer_class = IllnessReadSerializer
+# class IllnessCategoryViewSet(BaseViewSet):
+#   queryset = IllnessCategory.objects.all()
+#  serializer_class = IllnessCategorySerializer
+# read_serializer_class = IllnessReadSerializer
