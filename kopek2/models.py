@@ -3,6 +3,10 @@ from django.db import models
 from kopek2.helpers import IllnessCategory
 
 
+def upload_to(instance, filename):
+    return 'images/{filename}'.format(filename=filename)
+
+
 class Color(models.Model):
     name = models.CharField(max_length=32, verbose_name="colorNames", unique=True)
 
@@ -96,6 +100,7 @@ class Pet(models.Model):
     race = models.ForeignKey(Race, verbose_name="Race", null=True, on_delete=models.SET_NULL)
     illness = models.ManyToManyField(Illness, blank=True, verbose_name="Illness")
     gadget = models.ForeignKey(GadgetType, verbose_name="Gadget", null=True, on_delete=models.SET_NULL)
+    image = models.ImageField(upload_to=upload_to, blank=True, null=True)
 
     @property
     def age(self):

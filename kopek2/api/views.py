@@ -1,6 +1,6 @@
 from rest_framework import viewsets
-from rest_framework.permissions import IsAuthenticated
-
+from rest_framework import permissions
+from rest_framework.parsers import MultiPartParser, FormParser
 from kopek2.api.serializers import *
 from kopek2.models import *
 
@@ -19,7 +19,6 @@ class ColorViewSet(BaseViewSet):
     queryset = Color.objects.all()
     serializer_class = ColorSerializer
     read_serializer_class = ColorReadSerializer
-    permission_classes = [IsAuthenticated]
 
 
 class SizeViewSet(BaseViewSet):
@@ -123,7 +122,13 @@ class PetIllnessViewSet(BaseViewSet):
     serializer_class = PetIllnessSerializer
     read_serializer_class = PetIllnessReadSerializer
 
-# class IllnessCategoryViewSet(BaseViewSet):
-#   queryset = IllnessCategory.objects.all()
-#  serializer_class = IllnessCategorySerializer
-# read_serializer_class = IllnessReadSerializer
+
+class ImageViewSet(viewsets.ModelViewSet):
+    queryset = Pet.objects.order_by('-creation_date')
+    serializer_class = ImageSerializer
+    parser_classes = (MultiPartParser, FormParser)
+    permission_classes = [
+        permissions.IsAuthenticatedOrReadOnly]
+
+    def perform_create(self, serializer):
+        serializer.save(creator=self.request.user)

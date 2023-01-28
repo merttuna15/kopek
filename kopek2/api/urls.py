@@ -1,7 +1,10 @@
 from rest_framework.routers import DefaultRouter
 from kopek2.api.views import *
+from django.conf.urls.static import static
+from django.conf import settings
 
 router = DefaultRouter()
+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 router.register('color', ColorViewSet)
 router.register('size', SizeViewSet)
