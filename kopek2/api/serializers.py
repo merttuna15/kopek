@@ -191,7 +191,9 @@ class PetSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
 
-class PetReadSerializer(serializers.ModelSerializer):
+class PetDetailSerializer(serializers.ModelSerializer):
+    pk = serializers.IntegerField(read_only=True)
+
     class Meta:
         model = Pet
         fields = "__all__"

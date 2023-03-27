@@ -108,7 +108,7 @@ class ChallengeViewSet(BaseViewSet):
 class PetViewSet(BaseViewSet):
     queryset = Pet.objects.all()
     serializer_class = PetSerializer
-    read_serializer_class = PetReadSerializer
+    read_serializer_class = PetDetailSerializer
 
 
 class PetChallengeViewSet(BaseViewSet):
