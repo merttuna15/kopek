@@ -122,13 +122,3 @@ class PetIllnessViewSet(BaseViewSet):
     serializer_class = PetIllnessSerializer
     read_serializer_class = PetIllnessReadSerializer
 
-
-class ImageViewSet(viewsets.ModelViewSet):
-    queryset = Pet.objects.order_by('-creation_date')
-    serializer_class = ImageSerializer
-    parser_classes = (MultiPartParser, FormParser)
-    permission_classes = [
-        permissions.IsAuthenticatedOrReadOnly]
-
-    def perform_create(self, serializer):
-        serializer.save(creator=self.request.user)

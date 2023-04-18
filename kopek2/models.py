@@ -100,6 +100,7 @@ class Pet(models.Model):
     race = models.ForeignKey(Race, verbose_name="Race", null=True, on_delete=models.SET_NULL)
     illness = models.ManyToManyField(Illness, blank=True, verbose_name="Illness")
     gadget = models.ForeignKey(GadgetType, verbose_name="Gadget", null=True, on_delete=models.SET_NULL)
+
     # image = models.ImageField(upload_to=upload_to, blank=True, null=True)
 
     @property
@@ -127,3 +128,5 @@ class PetChallenge(models.Model):
     pet = models.ManyToManyField(Pet, verbose_name="pet")
     challenge = models.ManyToManyField(Challenge, verbose_name="challenge")
     award = models.ForeignKey(Award, verbose_name="award", null=True, on_delete=models.SET_NULL)
+
+
